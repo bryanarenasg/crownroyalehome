@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Crown Royale Home UPVC International - Luxury UPVC windows, doors, blinds, railings, shower enclosures and motorized gates in Iloilo and Bacolod">
     <title>Crown Royale Home UPVC International</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,93 +17,132 @@
 
         :root {
             --primary-red: #d53036;
-            --primary-yellow: #ffef03;
+            --primary-gold: #C9A961;
             --white: #ffffff;
-            --dark-gray: #333;
-            --light-gray: #f5f5f5;
+            --black: #000000;
+            --dark-gray: #2c2c2c;
+            --medium-gray: #666666;
+            --light-gray: #f8f8f8;
+            --border-gray: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
             color: var(--dark-gray);
+            font-weight: 400;
         }
 
-        /* Header */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header - Sticky Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #b82730 100%);
-            color: var(--white);
-            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            height: 60px;
+            height: 50px;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
         }
 
         nav a {
-            color: var(--white);
+            color: var(--dark-gray);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
         nav a:hover {
-            color: var(--primary-yellow);
+            color: var(--primary-red);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #b82730 100%);
-            color: var(--white);
-            padding: 120px 2rem 80px;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 80px;
+            color: var(--white);
+            overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('images/hero-placeholder.jpg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 0 2rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
         .hero .tagline {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--primary-yellow);
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
+        /* Section Containers */
+        .section {
+            padding: 120px 3rem;
         }
 
-        /* About Section */
-        .about {
-            padding: 80px 2rem;
+        .section-white {
             background: var(--white);
+        }
+
+        .section-gray {
+            background: var(--light-gray);
         }
 
         .container {
@@ -109,131 +151,140 @@
         }
 
         .section-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
             text-align: center;
-            font-size: 2.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: var(--primary-red);
             margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--primary-yellow);
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
             text-align: center;
+            font-weight: 600;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--medium-gray);
             max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        /* Products Section */
-        .products {
-            padding: 80px 2rem;
-            background: var(--light-gray);
+        .section-content p {
+            margin-bottom: 1.5rem;
         }
 
+        /* Products/Systems Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 0;
+            margin-top: 4rem;
         }
 
         .product-card {
             background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 3rem 2rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--primary-red);
+            border: 1px solid var(--border-gray);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(213, 48, 54, 0.2);
+            background: var(--light-gray);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
         .product-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-red);
         }
 
         .product-card h3 {
-            color: var(--primary-red);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
         }
 
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 2rem;
-            background: var(--white);
+        .product-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--medium-gray);
         }
 
+        /* Full-Width Image Sections */
+        .full-image {
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 4rem;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            aspect-ratio: 4/3;
+            aspect-ratio: 1/1;
+            background: var(--dark-gray);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            opacity: 1;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
+            opacity: 0.85;
         }
 
         /* Contact Section */
-        .contact {
-            padding: 80px 2rem;
-            background: var(--light-gray);
-        }
-
         .contact-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
         .contact-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: left;
         }
 
         .contact-card h3 {
-            color: var(--primary-red);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 0.5rem;
         }
 
         .contact-info {
@@ -241,19 +292,16 @@
         }
 
         .contact-info li {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .contact-info strong {
-            color: var(--primary-red);
-            display: inline-block;
-            min-width: 60px;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: var(--medium-gray);
+            line-height: 1.8;
         }
 
         .contact-info a {
-            color: var(--dark-gray);
+            color: var(--medium-gray);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
@@ -265,29 +313,33 @@
             background: var(--dark-gray);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
         footer p {
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #999;
         }
 
+        /* CTA Button */
         .cta-button {
             display: inline-block;
-            background: var(--primary-yellow);
-            color: var(--dark-gray);
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-red);
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 239, 3, 0.4);
+            background: transparent;
+            color: var(--primary-red);
         }
 
         /* Mobile Menu Toggle */
@@ -301,21 +353,43 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .header-content {
+                padding: 1.2rem 2rem;
+            }
+
+            .section {
+                padding: 80px 2rem;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 3rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
             .hero .tagline {
                 font-size: 1.1rem;
             }
 
-            nav {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
+            .section-title {
+                font-size: 2rem;
             }
 
             .products-grid {
@@ -330,11 +404,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
@@ -345,133 +414,144 @@
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">Company</a></li>
+                    <li><a href="#products">Systems</a></li>
+                    <li><a href="#gallery">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="menu-toggle">0</button>
+            <button class="menu-toggle">☰</button>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Crown Royale Home UPVC International</h1>
-        <p class="tagline">A Stronger and Better Home That Values Your Choice and Needs</p>
-        <p>Providing luxury feels and lifetime quality investment to your home. The elegance, durability, and state-of-the-art quality of UPVC windows and doors ensure that your design blends in beautifully to the surroundings and will surely fit the needs of your home or business.</p>
-        <a href="#contact" class="cta-button">Get a Quote Today</a>
+        <div class="hero-content">
+            <h1>Crown Royale Home UPVC®</h1>
+            <p class="tagline">Innovations Revolutionary</p>
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="section section-white">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <p>At Crown Royale Home UPVC International, we believe that every window opens to great possibilities for a brighter future. We intensively collaborate with you as part of our team to accomplish your customized needs.</p>
-                <p style="margin-top: 1.5rem;">Rest assured that your design inspiration is met, your satisfaction is guaranteed, and your dream structure becomes a reality. We specialize in bringing luxury, durability, and state-of-the-art quality to every project.</p>
+            <h2 class="section-subtitle">Crown Royale | About Us</h2>
+            <h1 class="section-title">Building Excellence Since 1997</h1>
+            <div class="section-content">
+                <p>Crown Royale Home UPVC International was founded with a vision to bring world-class architectural solutions to the Philippines. What started as a small enterprise has grown into a trusted name in premium UPVC systems, windows, doors, and custom architectural solutions.</p>
+                <p>We believe that every window opens to great possibilities for a brighter future. Through intensive collaboration with our clients, we transform architectural visions into reality, delivering customized solutions that meet the highest standards of quality and innovation.</p>
+                <p>Our commitment extends beyond products—we partner exclusively with the best manufacturers in the industry to ensure that every project reflects our dedication to excellence, durability, and state-of-the-art quality.</p>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
+    <!-- Full Width Image Divider -->
+    <div class="full-image" style="background-image: url('images/02d09b4d-9c8d-4ce4-bacc-b8d7d6343236.jpg');"></div>
+
+    <!-- Products/Systems Section -->
+    <section id="products" class="section section-gray">
         <div class="container">
-            <h2 class="section-title">Our Products & Services</h2>
+            <h2 class="section-subtitle">Our Systems</h2>
+            <h1 class="section-title">Exclusively Partnering With The Best</h1>
+            <div class="section-content">
+                <p>Crown Royale Home UPVC International collaborates with leading manufacturers worldwide to bring you the finest in architectural systems. Our partnerships ensure that every product meets the highest standards of innovation, quality, and performance.</p>
+            </div>
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-icon">>�</div>
+                    <div class="product-icon">🪟</div>
                     <h3>UPVC Windows & Doors</h3>
-                    <p>Premium quality UPVC windows and doors designed for elegance, energy efficiency, and long-lasting durability.</p>
+                    <p>Premium quality UPVC systems designed for elegance, energy efficiency, and durability</p>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon"><�</div>
+                    <div class="product-icon">🪟</div>
                     <h3>Korean Window Blinds</h3>
-                    <p>Stylish and functional Korean-imported window blinds that add sophistication to any space.</p>
+                    <p>Stylish and functional Korean-imported window blinds</p>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon">=)</div>
+                    <div class="product-icon">🏗️</div>
                     <h3>Spigots Railings</h3>
-                    <p>Modern and secure glass railings with spigot fittings for a sleek, contemporary look.</p>
+                    <p>Modern glass railings with secure spigot fittings</p>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon">=�</div>
+                    <div class="product-icon">🚿</div>
                     <h3>Shower Enclosures</h3>
-                    <p>Custom shower enclosures that combine functionality with elegant design for your bathroom.</p>
+                    <p>Custom shower enclosures with elegant design</p>
                 </div>
                 <div class="product-card">
-                    <div class="product-icon">=�</div>
+                    <div class="product-icon">🚪</div>
                     <h3>Motorized Gates</h3>
-                    <p>Advanced motorized gate systems providing security, convenience, and modern automation.</p>
+                    <p>Advanced motorized gate systems with modern automation</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Full Width Image Divider -->
+    <div class="full-image" style="background-image: url('images/7cad24d6-813e-47b1-bab9-758642e4fdf2.jpg');"></div>
+
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="section section-white">
         <div class="container">
-            <h2 class="section-title">Our Projects</h2>
+            <h2 class="section-subtitle">Our Portfolio</h2>
+            <h1 class="section-title">Bespoke Projects</h1>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/02d09b4d-9c8d-4ce4-bacc-b8d7d6343236.jpg" alt="Crown Royale Project 1">
+                    <img src="images/1d3a8988-80ce-4168-b1fc-1ced01455ac1.jpg" alt="Crown Royale Project 1" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/1d3a8988-80ce-4168-b1fc-1ced01455ac1.jpg" alt="Crown Royale Project 2">
+                    <img src="images/9bb515f9-a48f-418a-a33e-08ecf7e2c03b.jpg" alt="Crown Royale Project 2" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/7cad24d6-813e-47b1-bab9-758642e4fdf2.jpg" alt="Crown Royale Project 3">
+                    <img src="images/c21b9fa3-1247-4afe-8e0f-6fb0c86daf17.jpg" alt="Crown Royale Project 3" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/85a0f8b4-ee7d-42e8-9f47-8a2a5a882ef9 (1).jpg" alt="Crown Royale Project 4">
+                    <img src="images/c26f72be-99fc-4bf1-b2ec-2c8ce0ae283a.jpg" alt="Crown Royale Project 4" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/9bb515f9-a48f-418a-a33e-08ecf7e2c03b.jpg" alt="Crown Royale Project 5">
+                    <img src="images/eaa11f2f-5d3b-4f25-9092-a5978f320f9c.jpg" alt="Crown Royale Project 5" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/c21b9fa3-1247-4afe-8e0f-6fb0c86daf17.jpg" alt="Crown Royale Project 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/c26f72be-99fc-4bf1-b2ec-2c8ce0ae283a.jpg" alt="Crown Royale Project 7">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/eaa11f2f-5d3b-4f25-9092-a5978f320f9c.jpg" alt="Crown Royale Project 8">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/fbef3f65-0f76-48c7-8a9c-e23870b9074c.jpg" alt="Crown Royale Project 9">
+                    <img src="images/fbef3f65-0f76-48c7-8a9c-e23870b9074c.jpg" alt="Crown Royale Project 6" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="section section-gray">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-subtitle">Get In Touch</h2>
+            <h1 class="section-title">Contact Us</h1>
+            <div class="section-content" style="margin-bottom: 3rem;">
+                <p>Experience architectural excellence. Let us transform your vision into reality with our premium UPVC solutions and custom systems.</p>
+            </div>
             <div class="contact-content">
                 <div class="contact-card">
-                    <h3>=� Get in Touch</h3>
+                    <h3>General Inquiries</h3>
                     <ul class="contact-info">
-                        <li><strong>Phone:</strong> <a href="tel:09289295001">0928-929-5001</a></li>
-                        <li><strong>Email:</strong> <a href="mailto:crownroyaleblinds@gmail.com">crownroyaleblinds@gmail.com</a></li>
+                        <li><a href="tel:09289295001">0928-929-5001</a></li>
+                        <li><a href="mailto:crownroyaleblinds@gmail.com">crownroyaleblinds@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="contact-card">
-                    <h3>=� Iloilo Branch</h3>
+                    <h3>Iloilo Branch</h3>
                     <ul class="contact-info">
                         <li>LG SM City</li>
                         <li>(In front of Hukad)</li>
-                        <li>Mandurriao, Iloilo</li>
+                        <li>Mandurriao, Iloilo City</li>
                     </ul>
                 </div>
                 <div class="contact-card">
-                    <h3>=� Bacolod Plant</h3>
+                    <h3>Bacolod Plant</h3>
                     <ul class="contact-info">
                         <li>B3 L24 Capricorn St.</li>
                         <li>Sharina Heights</li>
                         <li>Bacolod City</li>
                     </ul>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="mailto:crownroyaleblinds@gmail.com" class="cta-button">Request a Quote</a>
             </div>
         </div>
     </section>
