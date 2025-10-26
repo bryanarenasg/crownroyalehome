@@ -64,6 +64,12 @@
             align-items: center;
         }
 
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo {
             height: 50px;
             transition: opacity 0.3s ease;
@@ -71,6 +77,13 @@
 
         .logo:hover {
             opacity: 0.8;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--black);
         }
 
         nav ul {
@@ -105,19 +118,59 @@
             text-align: center;
             color: var(--white);
             overflow: hidden;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                        url('images/hero-placeholder.jpg') center/cover no-repeat;
+        }
+
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1000px;
-            padding: 0 2rem;
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 300;
             letter-spacing: 2px;
             margin-bottom: 1.5rem;
@@ -125,11 +178,15 @@
         }
 
         .hero .tagline {
-            font-size: 1.4rem;
-            font-weight: 300;
+            font-size: 1.2rem;
+            font-weight: 600;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--primary-gold);
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 2rem;
+            width: 100%;
+            display: block;
         }
 
         /* Section Containers */
@@ -143,6 +200,262 @@
 
         .section-gray {
             background: var(--light-gray);
+        }
+
+        /* Sets Display Section */
+        .sets-display {
+            background: #f5f5f5;
+            padding: 80px 3rem;
+        }
+
+        .sets-intro {
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+        }
+
+        .sets-intro h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .sets-intro p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--medium-gray);
+        }
+
+        .sets-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .sets-grid-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 933px;
+        }
+
+        .set-card {
+            background: var(--white);
+            border: 1px solid var(--border-gray);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            position: relative;
+        }
+
+        .set-card:hover {
+            transform: translateY(-5px);
+            z-index: 10;
+        }
+
+        .set-card-wrapper {
+            position: relative;
+        }
+
+        .set-card-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .set-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.3s ease;
+        }
+
+        .set-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(213, 48, 54, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .set-card:hover .set-card-overlay {
+            opacity: 1;
+        }
+
+        .set-card-overlay p {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 0;
+            transform: translateY(120px);
+            transition: transform 0.5s ease;
+        }
+
+        .set-card:hover .set-card-overlay p {
+            transform: translateY(0);
+        }
+
+        .set-card-content {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .set-card h3 {
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            color: var(--dark-gray);
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .set-card-footer {
+            background: var(--primary-red);
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .set-card:hover .set-card-footer {
+            opacity: 0;
+        }
+
+        .set-card-footer p {
+            font-size: 0.9rem;
+            color: var(--white);
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        .lightbox.active {
+            display: block;
+        }
+
+        .lightbox-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+            min-height: 100vh;
+        }
+
+        .lightbox-info {
+            color: var(--dark-gray);
+        }
+
+        .lightbox-info h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-info p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--medium-gray);
+        }
+
+        .lightbox-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .lightbox-main-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            border: 2px solid var(--border-gray);
+        }
+
+        .lightbox-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .lightbox-thumbnail {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid var(--border-gray);
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-thumbnail:hover,
+        .lightbox-thumbnail.active {
+            border-color: var(--primary-red);
+            transform: scale(1.05);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--primary-red);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+
+        @media (max-width: 1024px) {
+            .lightbox-content {
+                grid-template-columns: 1fr;
+            }
         }
 
         .container {
@@ -265,6 +578,42 @@
         }
 
         /* Contact Section */
+        .contact-section {
+            position: relative;
+            background-image: url('images/slides/5b2f3654-2da4-46a8-8920-e2b3699703d5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(213, 48, 54, 0.85);
+            z-index: 1;
+        }
+
+        .contact-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-section .section-title {
+            color: var(--white);
+        }
+
+        .contact-section .section-content {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
         .contact-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -281,9 +630,9 @@
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            color: var(--dark-gray);
+            color: var(--white);
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--primary-red);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
             padding-bottom: 0.5rem;
         }
 
@@ -294,18 +643,18 @@
         .contact-info li {
             margin-bottom: 0.8rem;
             font-size: 1rem;
-            color: var(--medium-gray);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.8;
         }
 
         .contact-info a {
-            color: var(--medium-gray);
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
-            color: var(--primary-red);
+            color: var(--white);
         }
 
         /* Footer */
@@ -403,6 +752,11 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+
+            .sets-grid,
+            .sets-grid-bottom {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -410,13 +764,15 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <img src="images/logo.png" alt="Crown Royale Logo" class="logo">
+            <div class="logo-group">
+                <img src="images/logo.png" alt="Crown Royale Logo" class="logo">
+                <div class="header-title">Crown Royale Home UPVC</div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Company</a></li>
-                    <li><a href="#products">Systems</a></li>
-                    <li><a href="#gallery">Projects</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -426,9 +782,35 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active">
+                <img src="images/slides/0245870f-85de-4736-8b0e-95d4b6f63b5b.jpg" alt="Crown Royale Slide 1">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/21ec2773-0c65-4f2d-a023-d4070761d274.jpg" alt="Crown Royale Slide 2">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/5b2f3654-2da4-46a8-8920-e2b3699703d5.jpg" alt="Crown Royale Slide 3">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/906a7e1a-0521-4ce8-ba85-5955b3c7fc93.jpg" alt="Crown Royale Slide 4">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/90afef79-d18e-432e-a08b-4a8b2d7dc461.jpg" alt="Crown Royale Slide 5">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/99f4feaf-e5c0-42f9-9f4d-daae2461a697.jpg" alt="Crown Royale Slide 6">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/d8010ef4-49ab-40aa-9977-7073a2540f97.jpg" alt="Crown Royale Slide 7">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/fa16fda5-4ada-4d56-8e53-21fff71922a0.jpg" alt="Crown Royale Slide 8">
+            </div>
+        </div>
         <div class="hero-content">
-            <h1>Crown Royale Home UPVC®</h1>
-            <p class="tagline">Innovations Revolutionary</p>
+            <h1>Crown Royale Homes</h1>
+            <p class="tagline">For stronger and better homes</p>
         </div>
     </section>
 
@@ -436,89 +818,98 @@
     <section id="about" class="section section-white">
         <div class="container">
             <h2 class="section-subtitle">Crown Royale | About Us</h2>
-            <h1 class="section-title">Building Excellence Since 1997</h1>
+            <h1 class="section-title">For stronger and better homes</h1>
             <div class="section-content">
-                <p>Crown Royale Home UPVC International was founded with a vision to bring world-class architectural solutions to the Philippines. What started as a small enterprise has grown into a trusted name in premium UPVC systems, windows, doors, and custom architectural solutions.</p>
-                <p>We believe that every window opens to great possibilities for a brighter future. Through intensive collaboration with our clients, we transform architectural visions into reality, delivering customized solutions that meet the highest standards of quality and innovation.</p>
-                <p>Our commitment extends beyond products—we partner exclusively with the best manufacturers in the industry to ensure that every project reflects our dedication to excellence, durability, and state-of-the-art quality.</p>
+                <p>Crown Royale Home UPVC International is a manufacturer, fabricator and Installer of UPVC and Aluminum doors and windows, Korean blinds, Glass enclosures, Railings and Modular Cabinets with over 15 years of experience in the construction industry, helping homeowners and building contractors achieve a higher level of satisfaction by providing top-notch, world class, high quality materials, installation services and technical expertise, at a very competitive cost.</p>
             </div>
         </div>
     </section>
 
-    <!-- Full Width Image Divider -->
-    <div class="full-image" style="background-image: url('images/02d09b4d-9c8d-4ce4-bacc-b8d7d6343236.jpg');"></div>
-
-    <!-- Products/Systems Section -->
-    <section id="products" class="section section-gray">
-        <div class="container">
-            <h2 class="section-subtitle">Our Systems</h2>
-            <h1 class="section-title">Exclusively Partnering With The Best</h1>
-            <div class="section-content">
-                <p>Crown Royale Home UPVC International collaborates with leading manufacturers worldwide to bring you the finest in architectural systems. Our partnerships ensure that every product meets the highest standards of innovation, quality, and performance.</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">🪟</div>
-                    <h3>UPVC Windows & Doors</h3>
-                    <p>Premium quality UPVC systems designed for elegance, energy efficiency, and durability</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🪟</div>
-                    <h3>Korean Window Blinds</h3>
-                    <p>Stylish and functional Korean-imported window blinds</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🏗️</div>
-                    <h3>Spigots Railings</h3>
-                    <p>Modern glass railings with secure spigot fittings</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🚿</div>
-                    <h3>Shower Enclosures</h3>
-                    <p>Custom shower enclosures with elegant design</p>
-                </div>
-                <div class="product-card">
-                    <div class="product-icon">🚪</div>
-                    <h3>Motorized Gates</h3>
-                    <p>Advanced motorized gate systems with modern automation</p>
-                </div>
-            </div>
+    <!-- Sets Display Section -->
+    <section id="products" class="sets-display">
+            <h2 class="section-subtitle">Crown Royale | Projects</h2>
+        <div class="sets-intro">
+            <h2>Exclusively Partnering With The Best</h2>
+            <p>Crown Royale Home UPVC International collaborates with leading manufacturers worldwide to bring you the finest in architectural systems. Our partnerships ensure that every product meets the highest standards of innovation, quality, and performance.</p>
         </div>
-    </section>
-
-    <!-- Full Width Image Divider -->
-    <div class="full-image" style="background-image: url('images/7cad24d6-813e-47b1-bab9-758642e4fdf2.jpg');"></div>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section section-white">
-        <div class="container">
-            <h2 class="section-subtitle">Our Portfolio</h2>
-            <h1 class="section-title">Bespoke Projects</h1>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/1d3a8988-80ce-4168-b1fc-1ced01455ac1.jpg" alt="Crown Royale Project 1" loading="lazy">
+        <div class="sets-grid">
+            <a href="#" class="set-card" data-set="set1">
+                <div class="set-card-image-wrapper">
+                    <img src="images/set1/2ef1e206-ed9d-4b50-91f0-ab6011f3e18e.jpg" alt="UPVC Windows & Doors">
                 </div>
-                <div class="gallery-item">
-                    <img src="images/9bb515f9-a48f-418a-a33e-08ecf7e2c03b.jpg" alt="Crown Royale Project 2" loading="lazy">
+                <div class="set-card-content">
+                    <h3>CROWN EVERFRAME WINDOWS & DOORS</h3>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/c21b9fa3-1247-4afe-8e0f-6fb0c86daf17.jpg" alt="Crown Royale Project 3" loading="lazy">
+                <div class="set-card-footer">
+                    <p>View Portfolio</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/c26f72be-99fc-4bf1-b2ec-2c8ce0ae283a.jpg" alt="Crown Royale Project 4" loading="lazy">
+                <div class="set-card-overlay">
+                    <p>View Portfolio</p>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/eaa11f2f-5d3b-4f25-9092-a5978f320f9c.jpg" alt="Crown Royale Project 5" loading="lazy">
+            </a>
+            <a href="#" class="set-card" data-set="set2">
+                <div class="set-card-image-wrapper">
+                    <img src="images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg" alt="Korean Window Blinds">
                 </div>
-                <div class="gallery-item">
-                    <img src="images/fbef3f65-0f76-48c7-8a9c-e23870b9074c.jpg" alt="Crown Royale Project 6" loading="lazy">
+                <div class="set-card-content">
+                    <h3>CROWN ALLUTECH INNOVATIONS</h3>
                 </div>
-            </div>
+                <div class="set-card-footer">
+                    <p>View Portfolio</p>
+                </div>
+                <div class="set-card-overlay">
+                    <p>View Portfolio</p>
+                </div>
+            </a>
+            <a href="#" class="set-card" data-set="set3">
+                <div class="set-card-image-wrapper">
+                    <img src="images/set3/1ea1b69a-b296-42ac-a0b4-4e02bfce573d.jpg" alt="Spigots Railings">
+                </div>
+                <div class="set-card-content">
+                    <h3>CROWN BESPOKE CABINETS</h3>
+                </div>
+                <div class="set-card-footer">
+                    <p>View Portfolio</p>
+                </div>
+                <div class="set-card-overlay">
+                    <p>View Portfolio</p>
+                </div>
+            </a>
+        </div>
+        <div class="sets-grid-bottom">
+            <a href="#" class="set-card" data-set="set4">
+                <div class="set-card-image-wrapper">
+                    <img src="images/set4/25418caa-09aa-4fa2-9078-5cac6add81f1.jpg" alt="Shower Enclosures">
+                </div>
+                <div class="set-card-content">
+                    <h3>CROWN GLASS CREATIONS</h3>
+                </div>
+                <div class="set-card-footer">
+                    <p>View Portfolio</p>
+                </div>
+                <div class="set-card-overlay">
+                    <p>View Portfolio</p>
+                </div>
+            </a>
+            <a href="#" class="set-card" data-set="set5">
+                <div class="set-card-image-wrapper">
+                    <img src="images/set5/0eeff848-d567-49b6-882e-cf8833388286.jpg" alt="Motorized Gates">
+                </div>
+                <div class="set-card-content">
+                    <h3>CROWN SHADES & DRAPES</h3>
+                </div>
+                <div class="set-card-footer">
+                    <p>View Portfolio</p>
+                </div>
+                <div class="set-card-overlay">
+                    <p>View Portfolio</p>
+                </div>
+            </a>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section section-gray">
+    <section id="contact" class="section contact-section">
         <div class="container">
             <h2 class="section-subtitle">Get In Touch</h2>
             <h1 class="section-title">Contact Us</h1>
@@ -550,9 +941,6 @@
                     </ul>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="mailto:crownroyaleblinds@gmail.com" class="cta-button">Request a Quote</a>
-            </div>
         </div>
     </section>
 
@@ -562,11 +950,146 @@
         <p>Building Dreams, Creating Quality Homes</p>
     </footer>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content">
+            <div class="lightbox-info">
+                <h2 id="lightbox-title"></h2>
+                <p id="lightbox-description"></p>
+            </div>
+            <div class="lightbox-gallery">
+                <img id="lightbox-main-image" class="lightbox-main-image" src="" alt="">
+                <div id="lightbox-thumbnails" class="lightbox-thumbnails"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle (placeholder for future enhancement)
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const nav = document.querySelector('nav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Hero carousel functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 6 seconds
+        setInterval(nextSlide, 6000);
+
+        // Portfolio data
+        const portfolioData = {
+            set1: {
+                title: 'UPVC Windows & Doors',
+                description: 'UPVC doors and windows offer excellent durability, energy efficiency, and low maintenance. They resist corrosion, fading, and warping, making them ideal for all weather conditions. Their superior insulation helps reduce noise and energy costs, while their modern designs enhance both security and aesthetic appeal.',
+                images: [
+                    'images/set1/2ef1e206-ed9d-4b50-91f0-ab6011f3e18e.jpg',
+                    'images/set1/70f0a4f5-3b3f-4d88-b97d-4ccb39a96879.jpg',
+                    'images/set1/78040f9c-7286-4eb3-a685-f21ba5e8f19c.jpg',
+                    'images/set1/a473ef3d-f245-4633-83b3-29753c809471.jpg',
+                    'images/set1/fc1a2673-50df-4180-8464-4b5f601ef9ff.jpg'
+                ]
+            },
+            set2: {
+                title: 'Korean Window Blinds',
+                description: 'Extruded aluminum doors and windows are known for their exceptional strength, durability, and sleek modern appearance. They resist rust, corrosion, and deformation, ensuring long-lasting performance with minimal maintenance. Their slim yet sturdy profiles allow larger glass panels for better natural light and visibility, while maintaining excellent structural integrity and energy efficiency.',
+                images: ['images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg']
+            },
+            set3: {
+                title: 'Spigots Railings',
+                description: 'Modular bespoke cabinets combine custom craftsmanship with flexible design. They are tailored to fit your space perfectly, maximizing storage and functionality while maintaining a sleek, modern look. Built from high-quality materials, they offer durability, easy installation, and the ability to adapt or expand as your needs evolve.',
+                images: [
+                    'images/set3/1ea1b69a-b296-42ac-a0b4-4e02bfce573d.jpg',
+                    'images/set3/3d34f609-c1e8-4405-b049-56aac1155a12.jpg',
+                    'images/set3/71a495d6-3c43-429c-88cd-3c38d7f2be39.jpg',
+                    'images/set3/b2ef08f2-47eb-402f-ad02-6f358a01c0a8.jpg',
+                    'images/set3/c0cd8d24-e677-4e49-a2fa-d7a85b535dd8.jpg',
+                    'images/set3/dc9feb2d-bc15-43cc-9b16-601e5861cd9c.jpg'
+                ]
+            },
+            set4: {
+                title: 'Shower Enclosures',
+                description: 'Glass railings and curtain walls offer a seamless blend of elegance, safety, and modern design. Built with durable aluminum framing and high-quality tempered glass, they provide unobstructed views, maximize natural light, and enhance the overall aesthetic of any space. Both systems deliver excellent weather resistance, low maintenance, and long-lasting performance—perfect for achieving a sleek, open, and contemporary architectural look.',
+                images: [
+                    'images/set4/25418caa-09aa-4fa2-9078-5cac6add81f1.jpg',
+                    'images/set4/515c6c87-3918-4241-93f0-ffdc37b3ef09.jpg',
+                    'images/set4/9d1e74f6-6b69-46e7-ae3f-9c4f67798aa9.jpg',
+                    'images/set4/a91f6d00-06b0-4cf2-88ae-065f520118a0.jpg',
+                    'images/set4/a9408f52-b596-44c2-aec8-c9e3ea5c806c.jpg',
+                    'images/set4/cd0b8092-c1ca-4629-bc46-d39e9663d6b1.jpg',
+                    'images/set4/ffab5f3e-a826-4ef3-90d2-bfa799292cd6.jpg'
+                ]
+            },
+            set5: {
+                title: 'Motorized Gates',
+                description: '.Korean blinds and curtains combine style and functionality, offering precise light control, privacy, and a modern aesthetic. Designed with alternating sheer and opaque fabrics, they allow smooth adjustment of brightness while adding a touch of sophistication to any space. Easy to operate and maintain, they provide an elegant and energy-efficient solution for both residential and commercial interiors.',
+                images: [
+                    'images/set5/0eeff848-d567-49b6-882e-cf8833388286.jpg',
+                    'images/set5/4d5f99f0-8035-41a5-ba1c-dfea71ff04b1.jpg',
+                    'images/set5/85b448c2-b7b7-4977-8c70-3e638c81ca65.jpg',
+                    'images/set5/91aea20b-2c17-40ca-9a70-5b49bf951a93.jpg',
+                    'images/set5/daa6a547-728e-47ed-9c85-1c9fefd2a2d9.jpg'
+                ]
+            }
+        };
+
+        // Open lightbox
+        function openLightbox(setId) {
+            const data = portfolioData[setId];
+            if (!data) return;
+
+            document.getElementById('lightbox-title').textContent = data.title;
+            document.getElementById('lightbox-description').textContent = data.description;
+            document.getElementById('lightbox-main-image').src = data.images[0];
+
+            const thumbnailsContainer = document.getElementById('lightbox-thumbnails');
+            thumbnailsContainer.innerHTML = '';
+
+            data.images.forEach((img, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = img;
+                thumbnail.className = 'lightbox-thumbnail' + (index === 0 ? ' active' : '');
+                thumbnail.onclick = () => selectImage(img, thumbnail);
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Select image
+        function selectImage(src, thumbnail) {
+            document.getElementById('lightbox-main-image').src = src;
+            document.querySelectorAll('.lightbox-thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        // Add click handlers to set cards
+        document.querySelectorAll('.set-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const setId = card.getAttribute('data-set');
+                openLightbox(setId);
+            });
+        });
+
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
         });
     </script>
 </body>

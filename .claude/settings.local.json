@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for dir in images/set*/)",
+      "Bash(do ls \"$dir\")",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
