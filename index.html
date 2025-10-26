@@ -616,8 +616,8 @@
 
         .contact-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
             margin-top: 4rem;
         }
 
@@ -634,6 +634,7 @@
             margin-bottom: 1.5rem;
             border-bottom: 2px solid rgba(255, 255, 255, 0.5);
             padding-bottom: 0.5rem;
+            white-space: nowrap;
         }
 
         .contact-info {
@@ -749,6 +750,12 @@
                 grid-template-columns: 1fr;
             }
 
+            .contact-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             .contact-content {
                 grid-template-columns: 1fr;
             }
@@ -940,6 +947,12 @@
                         <li>Bacolod City</li>
                     </ul>
                 </div>
+                <div class="contact-card">
+                    <h3>Quezon City Showroom</h3>
+                    <ul class="contact-info">
+                        <li>89 Judge Juan Luna Project 7 Quezon City</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -988,7 +1001,7 @@
         // Portfolio data
         const portfolioData = {
             set1: {
-                title: 'UPVC Windows & Doors',
+                title: 'CROWN EVERFRAME WINDOWS & DOORS',
                 description: 'UPVC doors and windows offer excellent durability, energy efficiency, and low maintenance. They resist corrosion, fading, and warping, making them ideal for all weather conditions. Their superior insulation helps reduce noise and energy costs, while their modern designs enhance both security and aesthetic appeal.',
                 images: [
                     'images/set1/2ef1e206-ed9d-4b50-91f0-ab6011f3e18e.jpg',
@@ -999,12 +1012,12 @@
                 ]
             },
             set2: {
-                title: 'Korean Window Blinds',
+                title: 'CROWN ALLUTECH INNOVATIONS',
                 description: 'Extruded aluminum doors and windows are known for their exceptional strength, durability, and sleek modern appearance. They resist rust, corrosion, and deformation, ensuring long-lasting performance with minimal maintenance. Their slim yet sturdy profiles allow larger glass panels for better natural light and visibility, while maintaining excellent structural integrity and energy efficiency.',
                 images: ['images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg']
             },
             set3: {
-                title: 'Spigots Railings',
+                title: 'CROWN BESPOKE CABINETS',
                 description: 'Modular bespoke cabinets combine custom craftsmanship with flexible design. They are tailored to fit your space perfectly, maximizing storage and functionality while maintaining a sleek, modern look. Built from high-quality materials, they offer durability, easy installation, and the ability to adapt or expand as your needs evolve.',
                 images: [
                     'images/set3/1ea1b69a-b296-42ac-a0b4-4e02bfce573d.jpg',
@@ -1016,7 +1029,7 @@
                 ]
             },
             set4: {
-                title: 'Shower Enclosures',
+                title: 'CROWN GLASS CREATIONS',
                 description: 'Glass railings and curtain walls offer a seamless blend of elegance, safety, and modern design. Built with durable aluminum framing and high-quality tempered glass, they provide unobstructed views, maximize natural light, and enhance the overall aesthetic of any space. Both systems deliver excellent weather resistance, low maintenance, and long-lasting performance—perfect for achieving a sleek, open, and contemporary architectural look.',
                 images: [
                     'images/set4/25418caa-09aa-4fa2-9078-5cac6add81f1.jpg',
@@ -1029,7 +1042,7 @@
                 ]
             },
             set5: {
-                title: 'Motorized Gates',
+                title: 'CROWN SHADES & DRAPES',
                 description: '.Korean blinds and curtains combine style and functionality, offering precise light control, privacy, and a modern aesthetic. Designed with alternating sheer and opaque fabrics, they allow smooth adjustment of brightness while adding a touch of sophistication to any space. Easy to operate and maintain, they provide an elegant and energy-efficient solution for both residential and commercial interiors.',
                 images: [
                     'images/set5/0eeff848-d567-49b6-882e-cf8833388286.jpg',
