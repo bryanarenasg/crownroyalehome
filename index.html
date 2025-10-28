@@ -18,6 +18,7 @@
         :root {
             --primary-red: #d53036;
             --primary-gold: #C9A961;
+            --accent-gold: #fecd06;
             --white: #ffffff;
             --black: #000000;
             --dark-gray: #2c2c2c;
@@ -106,6 +107,21 @@
 
         nav a:hover {
             color: var(--primary-red);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -299,6 +315,10 @@
             opacity: 1;
         }
 
+        .set-card:hover {
+            box-shadow: 0 5px 20px rgba(254, 205, 6, 0.3);
+        }
+
         .set-card-overlay p {
             color: var(--white);
             font-size: 1.2rem;
@@ -427,8 +447,9 @@
 
         .lightbox-thumbnail:hover,
         .lightbox-thumbnail.active {
-            border-color: var(--primary-red);
+            border-color: var(--accent-gold);
             transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(254, 205, 6, 0.4);
         }
 
         .lightbox-close {
@@ -481,6 +502,20 @@
             margin-bottom: 3rem;
             text-align: center;
             font-weight: 600;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
         }
 
         .section-content {
@@ -524,6 +559,10 @@
             font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-red);
+        }
+
+        .product-card:hover .product-icon {
+            color: var(--accent-gold);
         }
 
         .product-card h3 {
@@ -580,7 +619,7 @@
         /* Contact Section */
         .contact-section {
             position: relative;
-            background-image: url('images/slides/5b2f3654-2da4-46a8-8920-e2b3699703d5.jpg');
+            background-image: url('images/slides/1bd8677919fb6c9c4eefd0d433b1cdb3.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -688,8 +727,9 @@
         }
 
         .cta-button:hover {
-            background: transparent;
-            color: var(--primary-red);
+            background: var(--accent-gold);
+            color: var(--dark-gray);
+            border-color: var(--accent-gold);
         }
 
         /* Mobile Menu Toggle */
@@ -773,7 +813,7 @@
         <div class="header-content">
             <div class="logo-group">
                 <img src="images/logo.png" alt="Crown Royale Logo" class="logo">
-                <div class="header-title">Crown Royale Home UPVC</div>
+                <div class="header-title">Crown Royale Home UPVC International</div>
             </div>
             <nav>
                 <ul>
@@ -791,32 +831,53 @@
     <section id="home" class="hero">
         <div class="hero-slides">
             <div class="hero-slide active">
-                <img src="images/slides/0245870f-85de-4736-8b0e-95d4b6f63b5b.jpg" alt="Crown Royale Slide 1">
+                <img src="images/slides/1bd8677919fb6c9c4eefd0d433b1cdb3.jpeg" alt="Crown Royale Slide 1">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/21ec2773-0c65-4f2d-a023-d4070761d274.jpg" alt="Crown Royale Slide 2">
+                <img src="images/slides/262e3b241a90f77fbff715d34c6d8da7.jpeg" alt="Crown Royale Slide 2">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/5b2f3654-2da4-46a8-8920-e2b3699703d5.jpg" alt="Crown Royale Slide 3">
+                <img src="images/slides/36ae514d3e1c8f28fbe3748f4ea18b08.jpeg" alt="Crown Royale Slide 3">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/906a7e1a-0521-4ce8-ba85-5955b3c7fc93.jpg" alt="Crown Royale Slide 4">
+                <img src="images/slides/4c6e673c35104068984ceb3521d7ffbe.jpeg" alt="Crown Royale Slide 4">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/90afef79-d18e-432e-a08b-4a8b2d7dc461.jpg" alt="Crown Royale Slide 5">
+                <img src="images/slides/64985d3a5ea1709179db638546767fea.jpeg" alt="Crown Royale Slide 5">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/99f4feaf-e5c0-42f9-9f4d-daae2461a697.jpg" alt="Crown Royale Slide 6">
+                <img src="images/slides/6caeed1ef63bb63e973ffd5ecdafe352.jpeg" alt="Crown Royale Slide 6">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/d8010ef4-49ab-40aa-9977-7073a2540f97.jpg" alt="Crown Royale Slide 7">
+                <img src="images/slides/9414c50449ea5722b1462a0bcf038171.jpeg" alt="Crown Royale Slide 7">
             </div>
             <div class="hero-slide">
-                <img src="images/slides/fa16fda5-4ada-4d56-8e53-21fff71922a0.jpg" alt="Crown Royale Slide 8">
+                <img src="images/slides/9887ab1288d459bb81b86b2a62da0c64.jpeg" alt="Crown Royale Slide 8">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/a051fc03f4e8a0bfa01e34e9880d26ac.jpeg" alt="Crown Royale Slide 9">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/a785e77b6c51a2e7728114dd2a4414fc.jpeg" alt="Crown Royale Slide 10">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/a8312e164a7733b506edbf961ed6a7a1.jpeg" alt="Crown Royale Slide 11">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/b3d81dc8314985b01ad143beecd8b1c4.jpeg" alt="Crown Royale Slide 12">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/c95ad192c4fe4af99ae75a1eb0018657.jpeg" alt="Crown Royale Slide 13">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/e36dccf284cef4f8e1d17d9ab0839438.jpeg" alt="Crown Royale Slide 14">
+            </div>
+            <div class="hero-slide">
+                <img src="images/slides/e3b4464b3c80025c0204ad127cfb70fa.jpeg" alt="Crown Royale Slide 15">
             </div>
         </div>
         <div class="hero-content">
-            <h1>Crown Royale Homes</h1>
+            <h1>Crown Royale Home Creations</h1>
             <p class="tagline">For stronger and better homes</p>
         </div>
     </section>
@@ -824,7 +885,7 @@
     <!-- About Section -->
     <section id="about" class="section section-white">
         <div class="container">
-            <h2 class="section-subtitle">Crown Royale | About Us</h2>
+            <h2 class="section-subtitle"> About Us</h2>
             <h1 class="section-title">For stronger and better homes</h1>
             <div class="section-content">
                 <p>Crown Royale Home UPVC International is a manufacturer, fabricator and Installer of UPVC and Aluminum doors and windows, Korean blinds, Glass enclosures, Railings and Modular Cabinets with over 15 years of experience in the construction industry, helping homeowners and building contractors achieve a higher level of satisfaction by providing top-notch, world class, high quality materials, installation services and technical expertise, at a very competitive cost.</p>
@@ -834,7 +895,7 @@
 
     <!-- Sets Display Section -->
     <section id="products" class="sets-display">
-            <h2 class="section-subtitle">Crown Royale | Projects</h2>
+            <h2 class="section-subtitle">Projects</h2>
         <div class="sets-intro">
             <h2>Exclusively Partnering With The Best</h2>
             <p>Crown Royale Home UPVC International collaborates with leading manufacturers worldwide to bring you the finest in architectural systems. Our partnerships ensure that every product meets the highest standards of innovation, quality, and performance.</p>
@@ -845,7 +906,7 @@
                     <img src="images/set1/2ef1e206-ed9d-4b50-91f0-ab6011f3e18e.jpg" alt="UPVC Windows & Doors">
                 </div>
                 <div class="set-card-content">
-                    <h3>CROWN EVERFRAME WINDOWS & DOORS</h3>
+                    <h3>UPVC WINDOWS AND DOORS</h3>
                 </div>
                 <div class="set-card-footer">
                     <p>View Portfolio</p>
@@ -859,7 +920,7 @@
                     <img src="images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg" alt="Korean Window Blinds">
                 </div>
                 <div class="set-card-content">
-                    <h3>CROWN ALLUTECH INNOVATIONS</h3>
+                    <h3>EXTRUDED ALUMINUM HIGH END SERIES</h3>
                 </div>
                 <div class="set-card-footer">
                     <p>View Portfolio</p>
@@ -873,7 +934,7 @@
                     <img src="images/set3/1ea1b69a-b296-42ac-a0b4-4e02bfce573d.jpg" alt="Spigots Railings">
                 </div>
                 <div class="set-card-content">
-                    <h3>CROWN BESPOKE CABINETS</h3>
+                    <h3>MODULAR CABINET</h3>
                 </div>
                 <div class="set-card-footer">
                     <p>View Portfolio</p>
@@ -889,7 +950,7 @@
                     <img src="images/set4/25418caa-09aa-4fa2-9078-5cac6add81f1.jpg" alt="Shower Enclosures">
                 </div>
                 <div class="set-card-content">
-                    <h3>CROWN GLASS CREATIONS</h3>
+                    <h3>SPIGOT , GLASS & STAINLESS WORKS</h3>
                 </div>
                 <div class="set-card-footer">
                     <p>View Portfolio</p>
@@ -903,7 +964,7 @@
                     <img src="images/set5/0eeff848-d567-49b6-882e-cf8833388286.jpg" alt="Motorized Gates">
                 </div>
                 <div class="set-card-content">
-                    <h3>CROWN SHADES & DRAPES</h3>
+                    <h3>KOREAN PREMIUM BLINDS & CURTAINS</h3>
                 </div>
                 <div class="set-card-footer">
                     <p>View Portfolio</p>
@@ -927,20 +988,20 @@
                 <div class="contact-card">
                     <h3>General Inquiries</h3>
                     <ul class="contact-info">
-                        <li><a href="tel:09289295001">0928-929-5001</a></li>
+                        <li><a href="tel:09289295001">0961-055-8654</a></li>
                         <li><a href="mailto:crownroyaleblinds@gmail.com">crownroyaleblinds@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="contact-card">
                     <h3>Iloilo Branch</h3>
                     <ul class="contact-info">
-                        <li>LG SM City</li>
-                        <li>(In front of Hukad)</li>
+                        <li>Upper Ground SM City</li>
+                        <li>(Near National Bookstore)</li>
                         <li>Mandurriao, Iloilo City</li>
                     </ul>
                 </div>
                 <div class="contact-card">
-                    <h3>Bacolod Plant</h3>
+                    <h3>Bacolod Branch</h3>
                     <ul class="contact-info">
                         <li>B3 L24 Capricorn St.</li>
                         <li>Sharina Heights</li>
@@ -948,7 +1009,7 @@
                     </ul>
                 </div>
                 <div class="contact-card">
-                    <h3>Quezon City Showroom</h3>
+                    <h3>Quezon City Branch</h3>
                     <ul class="contact-info">
                         <li>89 Judge Juan Luna Project 7 Quezon City</li>
                     </ul>
@@ -995,29 +1056,60 @@
             slides[currentSlide].classList.add('active');
         }
 
-        // Change slide every 6 seconds
-        setInterval(nextSlide, 6000);
+        // Change slide every 4 seconds
+        setInterval(nextSlide, 4000);
 
         // Portfolio data
         const portfolioData = {
             set1: {
-                title: 'CROWN EVERFRAME WINDOWS & DOORS',
+                title: 'UPVC WINDOWS AND DOORS',
                 description: 'UPVC doors and windows offer excellent durability, energy efficiency, and low maintenance. They resist corrosion, fading, and warping, making them ideal for all weather conditions. Their superior insulation helps reduce noise and energy costs, while their modern designs enhance both security and aesthetic appeal.',
                 images: [
                     'images/set1/2ef1e206-ed9d-4b50-91f0-ab6011f3e18e.jpg',
                     'images/set1/70f0a4f5-3b3f-4d88-b97d-4ccb39a96879.jpg',
                     'images/set1/78040f9c-7286-4eb3-a685-f21ba5e8f19c.jpg',
                     'images/set1/a473ef3d-f245-4633-83b3-29753c809471.jpg',
-                    'images/set1/fc1a2673-50df-4180-8464-4b5f601ef9ff.jpg'
+                    'images/set1/fc1a2673-50df-4180-8464-4b5f601ef9ff.jpg',
+                    'images/set1/1bd8677919fb6c9c4eefd0d433b1cdb3.jpeg',
+                    'images/set1/262e3b241a90f77fbff715d34c6d8da7.jpeg',
+                    'images/set1/298bafc7e91d34da03aef4a7ca305deb.jpeg',
+                    'images/set1/32d98d9e22e752cebad47af215d5f9f5.jpeg',
+                    'images/set1/36ae514d3e1c8f28fbe3748f4ea18b08.jpeg',
+                    'images/set1/4c6e673c35104068984ceb3521d7ffbe.jpeg',
+                    'images/set1/5681c289cdfff08ff32d6fd22d5009ba.jpeg',
+                    'images/set1/64985d3a5ea1709179db638546767fea.jpeg',
+                    'images/set1/6caeed1ef63bb63e973ffd5ecdafe352.jpeg',
+                    'images/set1/71add6f5998e70357e2754b5850a9b7d.jpeg',
+                    'images/set1/90283c7c467cc748a4727f69b3589ffe.jpeg',
+                    'images/set1/9414c50449ea5722b1462a0bcf038171.jpeg',
+                    'images/set1/97889803b6fcf93e6d99f8b313b77177.jpeg',
+                    'images/set1/9887ab1288d459bb81b86b2a62da0c64.jpeg',
+                    'images/set1/a051fc03f4e8a0bfa01e34e9880d26ac.jpeg',
+                    'images/set1/a785e77b6c51a2e7728114dd2a4414fc.jpeg',
+                    'images/set1/a8312e164a7733b506edbf961ed6a7a1.jpeg',
+                    'images/set1/a93426d82ae995f9bb683fc013011417.jpeg',
+                    'images/set1/b3d81dc8314985b01ad143beecd8b1c4.jpeg',
+                    'images/set1/bcf6ad9f598fc9766353ce47c5c8a24c.jpeg',
+                    'images/set1/c4ad710836a27e232b741de2e2dec125.jpeg',
+                    'images/set1/c95ad192c4fe4af99ae75a1eb0018657.jpeg',
+                    'images/set1/d65ded30a108ed2f017d51428a8a191a.jpeg',
+                    'images/set1/e36dccf284cef4f8e1d17d9ab0839438.jpeg',
+                    'images/set1/e3b4464b3c80025c0204ad127cfb70fa.jpeg',
+                    'images/set1/e571654955b3ee437812b6b42bb64390.jpeg'
                 ]
             },
             set2: {
-                title: 'CROWN ALLUTECH INNOVATIONS',
+                title: 'EXTRUDED ALUMINUM HIGH END SERIES',
                 description: 'Extruded aluminum doors and windows are known for their exceptional strength, durability, and sleek modern appearance. They resist rust, corrosion, and deformation, ensuring long-lasting performance with minimal maintenance. Their slim yet sturdy profiles allow larger glass panels for better natural light and visibility, while maintaining excellent structural integrity and energy efficiency.',
-                images: ['images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg']
+                images: [
+                    'images/set2/6f18640c-20f3-4b79-86ab-70184e042dca.jpg',
+                    'images/set2/IMG_7369.jpeg',
+                    'images/set2/IMG_7370.jpeg',
+                    'images/set2/IMG_7381.jpeg'
+                ]
             },
             set3: {
-                title: 'CROWN BESPOKE CABINETS',
+                title: 'MODULAR CABINET',
                 description: 'Modular bespoke cabinets combine custom craftsmanship with flexible design. They are tailored to fit your space perfectly, maximizing storage and functionality while maintaining a sleek, modern look. Built from high-quality materials, they offer durability, easy installation, and the ability to adapt or expand as your needs evolve.',
                 images: [
                     'images/set3/1ea1b69a-b296-42ac-a0b4-4e02bfce573d.jpg',
@@ -1029,7 +1121,7 @@
                 ]
             },
             set4: {
-                title: 'CROWN GLASS CREATIONS',
+                title: 'SPIGOT , GLASS & STAINLESS WORKS',
                 description: 'Glass railings and curtain walls offer a seamless blend of elegance, safety, and modern design. Built with durable aluminum framing and high-quality tempered glass, they provide unobstructed views, maximize natural light, and enhance the overall aesthetic of any space. Both systems deliver excellent weather resistance, low maintenance, and long-lasting performance—perfect for achieving a sleek, open, and contemporary architectural look.',
                 images: [
                     'images/set4/25418caa-09aa-4fa2-9078-5cac6add81f1.jpg',
@@ -1038,18 +1130,20 @@
                     'images/set4/a91f6d00-06b0-4cf2-88ae-065f520118a0.jpg',
                     'images/set4/a9408f52-b596-44c2-aec8-c9e3ea5c806c.jpg',
                     'images/set4/cd0b8092-c1ca-4629-bc46-d39e9663d6b1.jpg',
-                    'images/set4/ffab5f3e-a826-4ef3-90d2-bfa799292cd6.jpg'
+                    'images/set4/ffab5f3e-a826-4ef3-90d2-bfa799292cd6.jpg',
+                    'images/set4/IMG_7401.jpeg'
                 ]
             },
             set5: {
-                title: 'CROWN SHADES & DRAPES',
-                description: '.Korean blinds and curtains combine style and functionality, offering precise light control, privacy, and a modern aesthetic. Designed with alternating sheer and opaque fabrics, they allow smooth adjustment of brightness while adding a touch of sophistication to any space. Easy to operate and maintain, they provide an elegant and energy-efficient solution for both residential and commercial interiors.',
+                title: 'KOREAN PREMIUM BLINDS & CURTAINS',
+                description: 'Korean blinds and curtains combine style and functionality, offering precise light control, privacy, and a modern aesthetic. Designed with alternating sheer and opaque fabrics, they allow smooth adjustment of brightness while adding a touch of sophistication to any space. Easy to operate and maintain, they provide an elegant and energy-efficient solution for both residential and commercial interiors.',
                 images: [
                     'images/set5/0eeff848-d567-49b6-882e-cf8833388286.jpg',
                     'images/set5/4d5f99f0-8035-41a5-ba1c-dfea71ff04b1.jpg',
                     'images/set5/85b448c2-b7b7-4977-8c70-3e638c81ca65.jpg',
                     'images/set5/91aea20b-2c17-40ca-9a70-5b49bf951a93.jpg',
-                    'images/set5/daa6a547-728e-47ed-9c85-1c9fefd2a2d9.jpg'
+                    'images/set5/daa6a547-728e-47ed-9c85-1c9fefd2a2d9.jpg',
+                    'images/set5/fc1a2673-50df-4180-8464-4b5f601ef9ff (1).jpg'
                 ]
             }
         };
